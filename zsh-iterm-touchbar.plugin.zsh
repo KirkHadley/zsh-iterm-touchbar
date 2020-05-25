@@ -149,9 +149,9 @@ function _displayDefault() {
 
     indicators+="$(git_uncomitted)"
     indicators+="$(git_unstaged)"
-    indicators+="$(git_untracked)"
-    indicators+="$(git_stashed)"
-    indicators+="$(git_unpushed_unpulled)"
+    # indicators+="$(git_untracked)"
+    # indicators+="$(git_stashed)"
+    # indicators+="$(git_unpushed_unpulled)"
 
     [ -n "${indicators}" ] && touchbarIndicators="🔥[${indicators}]" || touchbarIndicators="🙌";
 
@@ -181,6 +181,15 @@ else
   else
       clearKey 8
   fi
+  # if [[ $(find-up package.json) != "" ]]; then
+  #     if [[ $(find-up yarn.lock) != "" ]] && [[ "$YARN_ENABLED" = true ]]; then
+  #         setKey 8 "🐱 yarn-run" _displayYarnScripts '-q'
+  #     else
+  #         setKey 9 "⚡️ npm-run" _displayNpmScripts '-q'
+  #   fi
+  # else
+  #     clearKey 8
+  # fi
 }
 
 function _displayNpmScripts() {
